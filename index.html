@@ -3,106 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mining Exam Preparation</title>
+    <title>DM notes</title>
     <style>
-        :root {
-            --bg-color: #f8f9fa;
-            --surface-color: #ffffff;
-            --primary-text-color: #212529;
-            --secondary-text-color: #6c757d;
-            --accent-color: #000000; /* Green for Unit 2 */
-            --accent-hover: #000000;
-            --header-color: #343a40;
-            --border-color: #dee2e6;
-            --table-header-bg: #e9ecef;
-        }
-        body { 
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7; 
-            color: var(--primary-text-color); 
-            max-width: 950px; 
-            margin: auto; 
-            padding: 20px; 
-            background-color: var(--bg-color); 
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-        h1 { 
-            color: var(--header-color); 
-            text-align: center; 
-            border-bottom: 3px solid var(--accent-color); 
-            padding-bottom: 15px; 
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-        h2 { 
-            color: var(--accent-color); 
-            border-left: 5px solid var(--accent-color); 
-            padding-left: 15px; 
-            margin-top: 40px; 
-            background: #f1f3f5;
-            padding-top: 8px; 
-            padding-bottom: 8px; 
-            font-size: 1.8em;
-        }
-        h3 { 
-            color: #17a2b8; 
-            margin-top: 30px; 
-            border-bottom: 1px solid var(--border-color);
+        h1, h2, h3 {
+            color: #005a9c;
+            border-bottom: 2px solid #005a9c;
             padding-bottom: 5px;
-            font-size: 1.4em;
         }
-        .answer-box { 
-            background: var(--surface-color); 
-            padding: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.075); 
-            margin-bottom: 35px; 
-            border: 1px solid var(--border-color);
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
         }
-        .diagram { 
-            background: #f8f9fa; 
-            border: 1px solid var(--border-color); 
-            padding: 20px; 
-            text-align: center; 
-            margin: 25px 0; 
+        h2 {
+            font-size: 2em;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+        p, ul {
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        code, pre {
+            background-color: #eee;
+            border-radius: 4px;
+            padding: 2px 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
             border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            margin: 25px 0; 
+        .note {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 15px;
+            margin-top: 20px;
         }
-        th, td { 
-            border: 1px solid var(--border-color); 
-            padding: 14px; 
-            text-align: left; 
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            font-weight: bold;
         }
-        th { 
-            background-color: var(--table-header-bg); 
-            color: var(--header-color); 
-            font-weight: 600;
+
+        /* --- Diagram Styles --- */
+        .diagram {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            text-align: center;
         }
-        tr:nth-child(even) { 
-            background-color: #f8f9fa; 
+        /* Tree Diagram */
+        .tree ul {
+            position: relative;
+            padding: 1em 0;
+            white-space: nowrap;
+            margin: 0 auto;
+            text-align: center;
         }
-        .highlight { 
-            font-weight: 600; 
-            color: var(--accent-color); 
+        .tree ul::after {
+            content: '';
+            display: table;
+            clear: both;
         }
-        ul, ol { 
-            margin-bottom: 15px; 
-            padding-left: 25px;
+        .tree li {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 1em 0.5em 0 0.5em;
         }
-        li { 
-            margin-bottom: 10px; 
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 2px solid #6c757d;
+            width: 50%;
+            height: 1em;
         }
-        p {
-            text-align: justify;
+        .tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 2px solid #6c757d;
         }
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+        .tree li:only-child {
+            padding-top: 0;
+        }
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0 none;
+        }
+        .tree li:last-child::before {
+            border-right: 2px solid #6c757d;
+            border-radius: 0 5px 0 0;
+        }
+        .tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+        .tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 2px solid #6c757d;
+            width: 0;
+            height: 1em;
+        }
+        .tree li a {
+            border: 2px solid #007bff;
+            padding: 0.5em 0.75em;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            color: #343a40;
+            background-color: #fff;
+            position: relative;
+            top: 1px;
+        }
+        .tree li a.leaf {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .tree li a:hover, .tree li a:hover+ul li a {
+            background: #e9ecef;
+            color: #000;
+        }
+        .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul ul::before, .tree li a:hover+ul li a {
+            border-color: #adb5bd;
+        }
+        /* Flowchart Styles */
+        .flowchart {
+            text-align: left;
+        }
+        .flow-wrapper {
+            display: flex;
+            align-items: flex-start;
+        }
+        .flow-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .flow-loop {
+            border-left: 2px solid #6c757d;
+            border-bottom: 2px solid #6c757d;
+            border-right: 2px solid #6c757d;
+            padding: 0 20px 20px 20px;
+            margin: 0 10px;
+            border-radius: 0 0 10px 10px;
+        }
+        .flow-node {
+            padding: 10px 15px;
+            border: 2px solid;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            min-width: 180px;
+            background-color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-node.process {
+            border-color: #007bff;
+        }
+        .flow-node.decision {
+            border-color: #ffc107;
+            transform: skewX(-20deg);
+        }
+        .flow-node.decision > div {
+            transform: skewX(20deg);
+        }
+        .flow-node.start-end {
+            border-color: #28a745;
+            border-radius: 25px;
+        }
+        .flow-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+        }
+        .flow-arrow::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid #6c757d;
+        }
+        .flow-line {
+            width: 2px;
+            background-color: #6c757d;
+            height: 30px;
+        }
+        .flow-branch {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .flow-branch-path {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            position: relative;
+        }
+        .flow-branch-path::before {
+             content: attr(data-label);
+             position: absolute;
+             top: -5px;
+             font-weight: bold;
+             color: #555;
+        }
+        .flow-branch-line {
+            width: 100%;
+            height: 2px;
+            background-color: #6c757d;
+        }
+        .loop-arrow {
+            position: absolute;
+            height: 100%;
+            width: 20px;
+            border-right: 2px solid #6c757d;
+            border-top: 2px solid #6c757d;
+            border-bottom: 2px solid #6c757d;
+            top: 0;
+            right: -22px;
+        }
+        .loop-arrow::after {
+            content: 'Yes';
+            font-weight: bold;
+            color: #555;
+            position: absolute;
+            top: -25px;
+            right: 0;
+        }
+        .loop-arrow::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 10px solid #6c757d;
+        }
+
+        /* K-Means Diagram Styles */
+        .kmeans-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .kmeans-step {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+        .kmeans-step h5 {
+            text-align: center;
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .kmeans-plot {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            background-color: #f0f0f0;
+        }
+        .point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .centroid {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 14px;
+        }
+        .c1 { background-color: #dc3545; }
+        .c2 { background-color: #007bff; }
+        .c3 { background-color: #28a745; }
+
+        /* Dendrogram Styles */
+        .dendrogram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dendro-node {
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.8em;
+        }
+        .dendro-node::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.9em;
+            width: 15px;
+            height: 2px;
+            background-color: #6c757d;
+        }
+        .dendro-children {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #6c757d;
+            border-radius: 5px 0 0 5px;
+        }
+
     </style>
 </head>
 <body>
+    <div class="container">
 
-    <h1>Data Mining: Unit 1</h1>
+           <h1>Data Mining: Unit 1</h1>
 
     <div class="answer-box">
         <h2>Why Data Mining?</h2>
@@ -656,6 +908,344 @@
             <li><span class="highlight">Discretization:</span> Divides the range of a continuous attribute into intervals. This is especially useful for algorithms that require categorical data.</li>
         </ul>
     </div>
+        <h1>Unit 2: Classification</h1>
 
+       
+
+        <h2>Bayes Classification</h2>
+        <p>Bayesian classifiers are smart statistical tools. They can guess the probability that something belongs to a certain class.</p>
+        <ul>
+            <li>They are based on <strong>Bayes' Theorem</strong>.</li>
+            <li>They are known for being <strong>fast and accurate</strong>, even with huge amounts of data.</li>
+            <li>A common type is the <strong>Naive Bayesian classifier</strong>. It has a simple assumption that makes it fast.</li>
+        </ul>
+
+        <h3>The "Naive" Assumption</h3>
+        <p>The classifier is called "naive" because it assumes that all the features (attributes) of your data are independent of each other. For example, it assumes a person's age doesn't affect their income when predicting if they'll buy something. This is often not true in real life, but it simplifies the math and works surprisingly well.</p>
+
+        <h3>Bayes' Theorem: The Core Idea</h3>
+        <p><strong>Bayes' Theorem</strong> is a mathematical formula used to determine a conditional probability. It describes the probability of an event occurring, based on prior knowledge of conditions that might be related to that event.</p>
+        <p>Bayes' Theorem helps us update our beliefs based on new evidence. Think of it as a recipe with these ingredients:</p>
+        <ul>
+            <li><strong>Prior Probability:</strong> What you believe before you see the evidence.
+                <ul><li><em>Example:</em> The chance that any random customer buys a computer is 30%.</li></ul>
+            </li>
+            <li><strong>Likelihood:</strong> How likely is your evidence, assuming your belief is true?
+                <ul><li><em>Example:</em> If a customer is a computer-buyer, what's the chance they are 35 years old?</li></ul>
+            </li>
+            <li><strong>Evidence:</strong> How common is that evidence in general?
+                <ul><li><em>Example:</em> What percentage of all customers are 35 years old?</li></ul>
+            </li>
+            <li><strong>Posterior Probability:</strong> What you want to find out. The updated belief after seeing the evidence.
+                <ul><li><em>Example:</em> If a customer is 35 years old, what is the chance they will buy a computer?</li></ul>
+            </li>
+        </ul>
+        <div class="formula">
+            P(Belief | Evidence) = [ P(Evidence | Belief) * P(Belief) ] / P(Evidence)
+        </div>
+
+        <h4>Simple Example: Will they buy a computer?</h4>
+        <p>Let's find the chance that a 35-year-old person earning $40k will buy a computer.</p>
+        <ul>
+            <li>The chance any person buys a computer is <strong>30%</strong> (Prior).</li>
+            <li>Among computer buyers, <strong>10%</strong> are 35 and earn $40k (Likelihood).</li>
+            <li>Overall, <strong>5%</strong> of all customers are 35 and earn $40k (Evidence).</li>
+        </ul>
+        <pre>Chance they will buy = (10% * 30%) / 5% = 0.6 = <strong>60%</strong></pre>
+        <p>So, there's a 60% probability this specific person will buy a computer.</p>
+
+        <h3>A Detailed Example: Naive Bayesian Classification</h3>
+        <p>Here is a more detailed, step-by-step example of how the Naive Bayesian classifier works. We will use a sample dataset to predict whether a person will buy a computer.</p>
+
+        <h4>1. The Training Data</h4>
+        <p>Imagine we have the following 14 records:</p>
+        <pre>
+| Age     | Income | Student | Credit Rating | Buys Computer |
+|---------|--------|---------|---------------|---------------|
+| youth   | high   | no      | fair          | no            |
+| youth   | high   | no      | excellent     | no            |
+| middle  | high   | no      | fair          | yes           |
+| senior  | medium | no      | fair          | yes           |
+| senior  | low    | yes     | fair          | yes           |
+| senior  | low    | yes     | excellent     | no            |
+| middle  | low    | yes     | excellent     | yes           |
+| youth   | medium | no      | fair          | no            |
+| youth   | low    | yes     | fair          | yes           |
+| senior  | medium | yes     | fair          | yes           |
+| youth   | medium | yes     | excellent     | yes           |
+| middle  | medium | no      | excellent     | yes           |
+| middle  | high   | yes     | fair          | yes           |
+| senior  | medium | no      | excellent     | no            |
+        </pre>
+
+        <h4>2. The Goal</h4>
+        <p>We want to predict if the following new person will buy a computer:</p>
+        <p><code>X = (age: youth, income: medium, student: yes, credit: fair)</code></p>
+
+        <h4>3. The Calculation Steps</h4>
+
+        <h5>Step A: Calculate Prior Probabilities</h5>
+        <p>First, we find the overall probability of each class.</p>
+        <ul>
+            <li>Total records: 14</li>
+            <li>Number who bought a computer ('yes'): 9</li>
+            <li>Number who did not ('no'): 5</li>
+        </ul>
+        <pre>
+P(buys='yes') = 9/14 = 0.643
+P(buys='no')  = 5/14 = 0.357
+        </pre>
+
+        <h5>Step B: Calculate Conditional Probabilities</h5>
+        <p>Now, for our new person <code>X</code>, we find the probability of each attribute, given each class.</p>
+        
+        <p><strong>For the class 'buys=yes' (9 records):</strong></p>
+        <ul>
+            <li>P(age='youth' | buys='yes') = 2/9 = 0.222</li>
+            <li>P(income='medium' | buys='yes') = 4/9 = 0.444</li>
+            <li>P(student='yes' | buys='yes') = 6/9 = 0.667</li>
+            <li>P(credit='fair' | buys='yes') = 6/9 = 0.667</li>
+        </ul>
+
+        <p><strong>For the class 'buys=no' (5 records):</strong></p>
+        <ul>
+            <li>P(age='youth' | buys='no') = 3/5 = 0.6</li>
+            <li>P(income='medium' | buys='no') = 2/5 = 0.4</li>
+            <li>P(student='yes' | buys='no') = 1/5 = 0.2</li>
+            <li>P(credit='fair' | buys='no') = 2/5 = 0.4</li>
+        </ul>
+
+        <h5>Step C: Make the Prediction</h5>
+        <p>Now we multiply the probabilities together for each class.</p>
+
+        <p><strong>Likelihood of 'buys=yes':</strong></p>
+        <pre>
+P(X | buys='yes') = P(youth|yes) * P(medium|yes) * P(student|yes) * P(fair|yes)
+                  = 0.222 * 0.444 * 0.667 * 0.667
+                  = 0.044
+</pre>
+        <p>...and we multiply this by the prior probability of 'yes':</p>
+        <pre>
+<strong>Result for 'yes' = P(X | yes) * P(yes) = 0.044 * 0.643 = 0.028</strong>
+        </pre>
+
+        <p><strong>Likelihood of 'buys=no':</strong></p>
+        <pre>
+P(X | buys='no') = P(youth|no) * P(medium|no) * P(student|no) * P(fair|no)
+                 = 0.6 * 0.4 * 0.2 * 0.4
+                 = 0.019
+</pre>
+        <p>...and we multiply this by the prior probability of 'no':</p>
+        <pre>
+<strong>Result for 'no' = P(X | no) * P(no) = 0.019 * 0.357 = 0.007</strong>
+        </pre>
+
+        <h4>4. Conclusion</h4>
+        <p>We compare the final results:</p>
+        <ul>
+            <li><strong>Yes: 0.028</strong></li>
+            <li>No: 0.007</li>
+        </ul>
+        <p>Since 0.028 is greater than 0.007, the Naive Bayesian classifier predicts that this person <strong>will buy a computer</strong>.</p>
+
+
+        <h2>Rule-Based Classification</h2>
+        <p>This method uses simple <strong>IF-THEN</strong> rules to classify data. It's popular because the rules are easy for humans to understand.</p>
+
+        <h3>IF-THEN Rules</h3>
+        <p>A rule has two parts:</p>
+        <ul>
+            <li><strong>IF (Condition):</strong> This is the "antecedent" or the condition to check.</li>
+            <li><strong>THEN (Prediction):</strong> This is the "consequent" or the class you predict.</li>
+        </ul>
+        <pre><strong>IF</strong> Age is 'Youth' <strong>AND</strong> Student is 'Yes' <strong>THEN</strong> Buys Computer is 'Yes'</pre>
+
+        <h4>Rule Quality: Coverage and Accuracy</h4>
+        <ul>
+            <li><strong>Coverage:</strong> How many data records does the 'IF' part of the rule apply to?
+                <ul><li><em>Example:</em> If 2 out of 5 total records have (Age='Youth', Student='Yes'), the coverage is 2/5 = 40%.</li></ul>
+            </li>
+            <li><strong>Accuracy:</strong> Out of the records the rule covered, how many did it classify correctly?
+                <ul><li><em>Example:</em> If both of those 2 records also have (Buys Computer='Yes'), the accuracy is 2/2 = 100%.</li></ul>
+            </li>
+        </ul>
+
+        <h3>Getting Rules from a Decision Tree</h3>
+        <p>You can turn a decision tree into a set of IF-THEN rules. Each path from the root of the tree to a leaf becomes one rule.</p>
+
+        <h4>Visual Diagram of a Decision Tree:</h4>
+        <div class="diagram tree">
+            <ul>
+                <li>
+                    <a href="#">age?</a>
+                    <ul>
+                        <li>
+                            <a href="#">youth</a>
+                            <ul>
+                                <li>
+                                    <a href="#">student?</a>
+                                    <ul>
+                                        <li><a class="leaf" href="#">no <br/>(Buys: No)</a></li>
+                                        <li><a class="leaf" href="#">yes <br/>(Buys: Yes)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="leaf" href="#">middle_aged <br/>(Buys: Yes)</a>
+                        </li>
+                        <li>
+                            <a href="#">senior</a>
+                            <ul>
+                                <li>
+                                    <a href="#">credit_rating?</a>
+                                    <ul>
+                                        <li><a class="leaf" href="#">excellent <br/>(Buys: Yes)</a></li>
+                                        <li><a class="leaf" href="#">fair <br/>(Buys: No)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h4>The Extracted Rules:</h4>
+        <ul>
+            <li><strong>R1:</strong> IF Age='youth' AND Student='no' THEN Buys Computer='No'</li>
+            <li><strong>R2:</strong> IF Age='youth' AND Student='yes' THEN Buys Computer='Yes'</li>
+            <li><strong>R3:</strong> IF Age='middle_aged' THEN Buys Computer='Yes'</li>
+            <li><strong>R4:</strong> IF Age='senior' AND Credit='excellent' THEN Buys Computer='Yes'</li>
+            <li><strong>R5:</strong> IF Age='senior' AND Credit='fair' THEN Buys Computer='No'</li>
+        </ul>
+
+        <h3>Sequential Covering Algorithm</h3>
+        <p>This is another way to create rules directly from data, without needing a decision tree first. It learns rules one by one ("sequentially").</p>
+
+        <h4>Sequential Covering Algorithm Diagram:</h4>
+        <div class="diagram">
+            <img src="Sequential Covering Algorithm.png" alt="Flowchart of Sequential Covering Algorithm" style="max-width: 100%; height: auto;">
+        </div>
+
+        <h2>Unit 3: Cluster Analysis</h2>
+        <p>Cluster analysis is the process of grouping a set of objects in such a way that objects in the same group (called a <strong>cluster</strong>) are more similar to each other than to those in other groups. It is a form of <strong>unsupervised learning</strong>, meaning it finds patterns in data without any predefined labels.</p>
+
+        <h3>Key Requirements for Clustering</h3>
+        <ul>
+            <li><strong>Scalability:</strong> Must be able to handle very large datasets.</li>
+            <li><strong>Attribute Types:</strong> Should work with different data types (numeric, categorical, etc.).</li>
+            <li><strong>Arbitrary Shapes:</strong> Must be able to find clusters that aren't just simple circles.</li>
+            <li><strong>Minimal Knowledge:</strong> Shouldn't require a user to be an expert to set its parameters.</li>
+            <li><strong>Noise Handling:</strong> Must be able to deal with errors or outlier data points.</li>
+            <li><strong>Interpretability:</strong> The results should be easy to understand and use.</li>
+        </ul>
+
+        <h3>Overview of Clustering Methods</h3>
+        <p>There are several different ways to perform clustering:</p>
+        <ul>
+            <li><strong>Partitioning Methods:</strong> Divides the data into a pre-defined number of clusters (k). Tries to make the center of each cluster as representative as possible. (e.g., k-Means)</li>
+            <li><strong>Hierarchical Methods:</strong> Creates a tree-like structure of clusters. Can be done bottom-up (agglomerative) or top-down (divisive).</li>
+            <li><strong>Density-Based Methods:</strong> Connects areas of high point density into clusters. Can find clusters of any shape and is good at handling noise.</li>
+            <li><strong>Grid-Based Methods:</strong> Divides the data space into a grid and performs clustering on the grid cells. This is very fast and scalable.</li>
+        </ul>
+
+        <h3>Partitioning Methods: k-Means</h3>
+        <p>The k-Means algorithm is one of the most popular clustering methods. It divides data into <strong>k</strong> clusters by trying to minimize the distance between points and their cluster's center (centroid).</p>
+        <h4>Steps of k-Means Algorithm</h4>
+        <ol>
+            <li><strong>Choose k:</strong> Decide how many clusters you want to find.</li>
+            <li><strong>Initialize Centroids:</strong> Randomly pick k data points to be the initial centers (centroids) of your clusters.</li>
+            <li><strong>Assign Points:</strong> Assign each data point to the cluster whose centroid is closest.</li>
+            <li><strong>Update Centroids:</strong> Recalculate the centroid of each cluster by finding the mean (average) of all the points assigned to it.</li>
+            <li><strong>Repeat:</strong> Repeat steps 3 and 4 until the clusters no longer change.</li>
+        </ol>
+
+        <h4>Visual Example of k-Means Iterations</h4>
+        <div class="diagram kmeans-container">
+            <div class="kmeans-step">
+                <h5>1. Initial State</h5>
+                <div class="kmeans-plot">
+                    <!-- Centroids -->
+                    <div class="centroid c1" style="top: 20%; left: 30%;">+</div>
+                    <div class="centroid c2" style="top: 70%; left: 60%;">+</div>
+                    <!-- Points -->
+                    <div class="point" style="top: 15%; left: 25%; background: #6c757d;"></div>
+                    <div class="point" style="top: 30%; left: 40%; background: #6c757d;"></div>
+                    <div class="point" style="top: 60%; left: 10%; background: #6c757d;"></div>
+                    <div class="point" style="top: 80%; left: 50%; background: #6c757d;"></div>
+                    <div class="point" style="top: 65%; left: 75%; background: #6c757d;"></div>
+                </div>
+            </div>
+            <div class="kmeans-step">
+                <h5>2. Iteration 1 (Assign & Update)</h5>
+                <div class="kmeans-plot">
+                    <!-- New Centroids -->
+                    <div class="centroid c1" style="top: 38%; left: 25%;">+</div>
+                    <div class="centroid c2" style="top: 72%; left: 62%;">+</div>
+                    <!-- Points assigned to clusters -->
+                    <div class="point c1" style="top: 15%; left: 25%;"></div>
+                    <div class="point c1" style="top: 30%; left: 40%;"></div>
+                    <div class="point c1" style="top: 60%; left: 10%;"></div>
+                    <div class="point c2" style="top: 80%; left: 50%;"></div>
+                    <div class="point c2" style="top: 65%; left: 75%;"></div>
+                </div>
+            </div>
+            <div class="kmeans-step">
+                <h5>3. Final Clusters</h5>
+                <div class="kmeans-plot">
+                    <!-- Final Centroids -->
+                    <div class="centroid c1" style="top: 35%; left: 25%;">+</div>
+                    <div class="centroid c2" style="top: 72%; left: 62%;">+</div>
+                    <!-- Points in final clusters -->
+                    <div class="point c1" style="top: 15%; left: 25%;"></div>
+                    <div class="point c1" style="top: 30%; left: 40%;"></div>
+                    <div class="point c1" style="top: 60%; left: 10%;"></div>
+                    <div class="point c2" style="top: 80%; left: 50%;"></div>
+                    <div class="point c2" style="top: 65%; left: 75%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Hierarchical Methods</h3>
+        <p>Hierarchical clustering creates a tree of clusters, also known as a <strong>dendrogram</strong>. This method doesn't require you to pre-specify the number of clusters.</p>
+        <ul>
+            <li><strong>Agglomerative (Bottom-up):</strong> Starts with each data point in its own cluster and merges the closest pairs of clusters until only one cluster is left.</li>
+            <li><strong>Divisive (Top-down):</strong> Starts with all data points in one big cluster and recursively splits it into smaller clusters.</li>
+        </ul>
+        <h4>Example of a Dendrogram</h4>
+        <p>This diagram shows how individual data points (a, b, c, d, e) are progressively merged into larger clusters based on similarity.</p>
+        <div class="diagram">
+            <div class="dendrogram">
+                <div class="dendro-children">
+                    <div class="dendro-children" style="border-radius: 5px;">
+                        <div class="dendro-children">
+                             <div class="dendro-node">a</div>
+                             <div class="dendro-node">b</div>
+                        </div>
+                        <div class="dendro-node">c</div>
+                    </div>
+                    <div class="dendro-children">
+                        <div class="dendro-node">d</div>
+                        <div class="dendro-node">e</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Evaluation of Clustering</h3>
+        <p>How do we know if our clustering is good? We evaluate it based on a few ideas:</p>
+        <ul>
+            <li><strong>Clustering Tendency:</strong> First, we check if the data even has natural clusters, or if it's just random noise.</li>
+            <li><strong>Number of Clusters:</strong> Methods like the "Elbow Method" can help estimate the best number of clusters (k) for algorithms like k-Means.</li>
+            <li><strong>Clustering Quality:</strong> We measure how good the clusters are.
+                <ul>
+                    <li><strong>Internal Measures:</strong> Check how dense the clusters are (compactness) and how far apart they are from each other (separation). E.g., Silhouette Coefficient.</li>
+                    <li><strong>External Measures:</strong> If we have correct "ground truth" labels, we can compare our clusters to the correct answers to measure accuracy. E.g., Purity.</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
 </body>
 </html>
