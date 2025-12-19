@@ -10,8 +10,8 @@
             --surface-color: #ffffff;
             --primary-text-color: #212529;
             --secondary-text-color: #6c757d;
-            --accent-color: #007bff;
-            --accent-hover: #0056b3;
+            --accent-color: #000000; /* Green for Unit 2 */
+            --accent-hover: #000000;
             --header-color: #343a40;
             --border-color: #dee2e6;
             --table-header-bg: #e9ecef;
@@ -483,6 +483,178 @@
                 </ul>
             </li>
         </ol>
+    </div>
+
+    
+    <h1>Data Mining: Unit 2</h1>
+
+    <div class="answer-box">
+        <h2>1. Getting to Know Your Data: Objects and Attributes</h2>
+        <p>Before any mining can be performed, it's essential to understand the data itself. Data is composed of <span class="highlight">data objects</span>, which represent entities (e.g., customers, patients, products). Each object is described by a set of <span class="highlight">attributes</span> (also known as features, variables, or dimensions).</p>
+        
+        <h3>Types of Attributes</h3>
+        <p>The type of an attribute determines which operations and analyses are appropriate. They can be broadly classified as follows:</p>
+        <table>
+            <tr>
+                <th>Attribute Type</th>
+                <th>Description</th>
+                <th>Examples</th>
+                <th>Operations</th>
+            </tr>
+            <tr>
+                <td class="highlight">Nominal</td>
+                <td>Represents categories, names, or states with no meaningful order. Also called categorical.</td>
+                <td>Colors (red, blue), eye color, ID numbers, zip codes.</td>
+                <td>mode, entropy, contingency correlation.</td>
+            </tr>
+            <tr>
+                <td class="highlight">Binary</td>
+                <td>A special case of a nominal attribute with only two states (0 or 1, true or false).</td>
+                <td>Smoker (yes/no), has_cancer (true/false).</td>
+                <td>Symmetric: contingency table. Asymmetric: support, confidence.</td>
+            </tr>
+            <tr>
+                <td class="highlight">Ordinal</td>
+                <td>The values have a meaningful order or rank, but the magnitude between successive values is unknown.</td>
+                <td>Grades (A, B, C), size (small, medium, large), army ranks.</td>
+                <td>median, percentiles, rank correlation.</td>
+            </tr>
+            <tr>
+                <td class="highlight">Numeric</td>
+                <td>A quantitative attribute represented by a measurable quantity (integer or real-valued).</td>
+                <td>Temperature, height, age, salary.</td>
+                <td>mean, median, standard deviation, range.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="answer-box">
+        <h2>2. Basic Statistical Descriptions of Data</h2>
+        <p>Basic statistical descriptions provide a preliminary understanding of the data's characteristics. They help identify central tendency, variability, and the overall distribution of the data.</p>
+        
+        <h3>Measures of Central Tendency</h3>
+        <ul>
+            <li><span class="highlight">Mean:</span> The average value. It is sensitive to outliers. For a set of N values: <code style="background:#eee; padding:2px 5px; border-radius:3px;">(x₁ + x₂ + ... + xₙ) / N</code></li>
+            <li><span class="highlight">Median:</span> The middle value in an ordered dataset. If the dataset has an even number of values, it's the average of the two middle values. It is robust to outliers.</li>
+            <li><span class="highlight">Mode:</span> The value that occurs most frequently in the dataset. A dataset can have one (unimodal), two (bimodal), or more modes.</li>
+        </ul>
+
+        <h3>Measures of Data Dispersion</h3>
+        <ul>
+            <li><span class="highlight">Range:</span> The difference between the largest and smallest values.</li>
+            <li><span class="highlight">Quartiles & IQR:</span> Quartiles divide the data into four equal parts. The first quartile (Q1) is the 25th percentile, and the third quartile (Q3) is the 75th percentile. The Interquartile Range (IQR) is Q3 - Q1 and represents the middle 50% of the data, making it a robust measure of spread.</li>
+            <li><span class="highlight">Variance & Standard Deviation:</span> These measure how spread out the data is from the mean. A low standard deviation indicates that values are close to the mean, while a high standard deviation indicates they are spread out.</li>
+        </ul>
+
+        <div class="diagram">
+            <svg width="100%" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                <title>Boxplot Diagram</title>
+                <!-- Whiskers -->
+                <line x1="100" y1="100" x2="400" y2="100" stroke="#6c757d" stroke-width="2"/>
+                <!-- Box -->
+                <rect x="150" y="70" width="200" height="60" fill="#f8f9fa" stroke="#343a40" stroke-width="2"/>
+                <!-- Median Line -->
+                <line x1="250" y1="70" x2="250" y2="130" stroke="#e63946" stroke-width="2.5"/>
+                <!-- Whiskers ends -->
+                <line x1="100" y1="85" x2="100" y2="115" stroke="#6c757d" stroke-width="2"/>
+                <line x1="400" y1="85" x2="400" y2="115" stroke="#6c757d" stroke-width="2"/>
+                
+                <!-- Labels -->
+                <text x="100" y="55" text-anchor="middle" font-size="12" fill="#212529">Minimum</text>
+                <text x="150" y="145" text-anchor="middle" font-size="12" fill="#212529">Q1 (25%)</text>
+                <text x="250" y="55" text-anchor="middle" font-size="12" fill="#e63946" font-weight="600">Median (Q2)</text>
+                <text x="350" y="145" text-anchor="middle" font-size="12" fill="#212529">Q3 (75%)</text>
+                <text x="400" y="55" text-anchor="middle" font-size="12" fill="#212529">Maximum</text>
+                
+                 <!-- IQR -->
+                <line x1="150" y1="160" x2="350" y2="160" stroke="#007bff" stroke-width="1.5"/>
+                <line x1="150" y1="155" x2="150" y2="165" stroke="#007bff" stroke-width="1.5"/>
+                <line x1="350" y1="155" x2="350" y2="165" stroke="#007bff" stroke-width="1.5"/>
+                <text x="250" y="180" text-anchor="middle" font-size="12" fill="#007bff" font-weight="600">Interquartile Range (IQR)</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="answer-box">
+        <h2>3. Data Preprocessing</h2>
+        <p>Real-world data is often incomplete, inconsistent, and lacking in certain behaviors or trends. Data preprocessing is a crucial step that involves cleaning and organizing the raw data to make it suitable for a data mining algorithm. The principle is simple: <span class="highlight">"Garbage in, garbage out."</span> High-quality data leads to high-quality mining results.</p>
+        
+        <div class="diagram">
+            <svg width="100%" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+                 <defs>
+                    <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto" fill="#28a745"><polygon points="0 0, 10 3.5, 0 7" /></marker>
+                </defs>
+                 <style>
+                    .p-box { fill: #fff; stroke: #28a745; stroke-width: 2; }
+                    .p-text { font-size: 16px; fill: #212529; text-anchor: middle; }
+                    .p-arrow { stroke: #28a745; stroke-width: 2.5; marker-end: url(#arrowhead3); }
+                </style>
+                <rect x="30" y="50" width="140" height="50" rx="5" class="p-box" />
+                <text x="100" y="80" class="p-text">Data Cleaning</text>
+                <path d="M175 75 L 215 75" class="p-arrow"/>
+                
+                <rect x="220" y="50" width="150" height="50" rx="5" class="p-box" />
+                <text x="295" y="80" class="p-text">Data Integration</text>
+                <path d="M375 75 L 415 75" class="p-arrow"/>
+                
+                <rect x="420" y="50" width="150" height="50" rx="5" class="p-box" />
+                <text x="495" y="80" class="p-text">Data Reduction</text>
+                <path d="M575 75 L 615 75" class="p-arrow"/>
+
+                <rect x="620" y="50" width="150" height="50" rx="5" class="p-box" />
+                <text x="695" y="80" class="p-text">Transformation</text>
+            </svg>
+        </div>
+        
+        <h3>I. Data Cleaning</h3>
+        <p>This process handles data quality problems to ensure the data is accurate and consistent.</p>
+        <ul>
+            <li><strong>Handling Missing Values:</strong>
+                <ul>
+                    <li><u>Ignore the tuple:</u> Usually done when the class label is missing (not effective for small datasets).</li>
+                    <li><u>Fill in the missing value manually:</u> Tedious and often not feasible for large datasets.</li>
+                    <li><u>Use a global constant:</u> Replace all missing values with a constant like "Unknown" or -1.</li>
+                    <li><u>Use a measure of central tendency:</u> Use the attribute mean (for symmetric data) or median (for skewed data).</li>
+                    <li><u>Use the most probable value:</u> Can be determined using regression or a decision tree.</li>
+                </ul>
+            </li>
+            <li><strong>Handling Noisy Data:</strong> Noise is a random error or variance in a measured variable.
+                 <ul>
+                    <li><u>Binning:</u> Sort data and partition into bins. Smooth by bin means, medians, or boundaries.</li>
+                    <li><u>Regression:</u> Smooth data by fitting it to a regression function.</li>
+                    <li><u>Clustering:</u> Detect and remove outliers.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>II. Data Integration</h3>
+        <p>Data integration combines data from multiple sources into a coherent data store, such as a data warehouse. Key challenges include:</p>
+        <ul>
+            <li><span class="highlight">Entity Identification Problem:</span> Identifying real-world entities from multiple data sources. For example, `cust_id` in one database and `customer_number` in another may refer to the same entity.</li>
+            <li><span class="highlight">Redundancy and Correlation:</span> An attribute may be redundant if it can be "derived" from another. For example, `age` and `date_of_birth`. Correlated attributes should be identified to avoid redundancy.</li>
+            <li><span class="highlight">Data Value Conflicts:</span> The same real-world entity may have conflicting attribute values in different sources, due to differences in representation, scaling, or encoding (e.g., 'cm' vs. 'inches').</li>
+        </ul>
+
+        <h3>III. Data Reduction</h3>
+        <p>Data reduction techniques obtain a reduced representation of the dataset that is much smaller in volume, yet produces the same (or almost the same) analytical results.</p>
+        <ul>
+            <li><span class="highlight">Dimensionality Reduction:</span> Reduces the number of random variables or attributes under consideration. Methods include Principal Component Analysis (PCA) and attribute subset selection.</li>
+            <li><span class="highlight">Numerosity Reduction:</span> Replaces the original data volume with a smaller form of data representation. This includes parametric methods (e.g., regression) and non-parametric methods (e.g., sampling, histograms, clustering).</li>
+        </ul>
+        
+        <h3>IV. Data Transformation</h3>
+        <p>In data transformation, the data are transformed or consolidated into forms appropriate for mining.</p>
+        <ul>
+            <li><span class="highlight">Normalization:</span> Scales attribute data to fall within a smaller, specified range.
+                <table>
+                    <tr><th>Method</th><th>Formula</th><th>Description</th></tr>
+                    <tr><td>Min-Max</td><td>v' = (v - min) / (max - min)</td><td>Scales data to a new range, typically [0, 1].</td></tr>
+                    <tr><td>Z-Score</td><td>v' = (v - mean) / std_dev</td><td>Transforms data to have a mean of 0 and standard deviation of 1.</td></tr>
+                    <tr><td>Decimal Scaling</td><td>v' = v / 10ʲ</td><td>Moves the decimal point of values based on the maximum absolute value.</td></tr>
+                </table>
+            </li>
+            <li><span class="highlight">Discretization:</span> Divides the range of a continuous attribute into intervals. This is especially useful for algorithms that require categorical data.</li>
+        </ul>
     </div>
 
 </body>
