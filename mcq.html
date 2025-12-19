@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mining MCQs</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        ol {
+            list-style-type: none;
+            counter-reset: question-counter;
+            padding-left: 0;
+        }
+        li.question-item {
+            counter-increment: question-counter;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        li.question-item::before {
+            content: counter(question-counter) ". ";
+            font-weight: bold;
+            color: #0056b3;
+            margin-right: 5px;
+        }
+        p.question-text {
+            display: inline;
+            font-weight: 600;
+        }
+        ul.options {
+            list-style-type: none;
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+        ul.options li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        ul.options li::before {
+            content: "○";
+            position: absolute;
+            left: 0;
+            color: #0056b3;
+        }
+        .correct {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .correct::before {
+            content: "✔";
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Mining MCQs</h1>
+
+    <h2>Unit 1</h2>
+    <ol>
+        <li class="question-item"><p class="question-text">Why is data mining considered the core step in Knowledge Discovery in Databases (KDD)?</p>
+            <ul class="options">
+                <li>a) It stores data efficiently</li>
+                <li>b) It automates data collection</li>
+                <li class="correct">c) It extracts useful patterns and knowledge from data</li>
+                <li>d) It secures data storage</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following best defines Data Mining?</p>
+            <ul class="options">
+                <li>a) Extracting raw data from databases</li>
+                <li class="correct">b) Identifying patterns and knowledge from large datasets</li>
+                <li>c) Deleting irrelevant records from databases</li>
+                <li>d) Designing database schemas</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which type of data can be mined in data mining?</p>
+            <ul class="options">
+                <li>a) Relational databases</li>
+                <li>b) Data warehouses</li>
+                <li>c) Transactional data</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is an example of a pattern that can be mined?</p>
+            <ul class="options">
+                <li>a) Frequent item sets</li>
+                <li>b) Clusters</li>
+                <li>c) Classification models</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which is NOT an issue in data mining?</p>
+            <ul class="options">
+                <li>a) Scalability</li>
+                <li>b) Privacy concerns</li>
+                <li>c) Interpretation of patterns</li>
+                <li class="correct">d) Normalization of database schema</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A data object in a dataset represents:</p>
+            <ul class="options">
+                <li>a) A single attribute</li>
+                <li class="correct">b) A collection of attributes describing an entity</li>
+                <li>c) The database schema</li>
+                <li>d) A statistical measure</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is NOT an attribute type?</p>
+            <ul class="options">
+                <li>a) Nominal</li>
+                <li>b) Ordinal</li>
+                <li class="correct">c) Relational</li>
+                <li>d) Ratio</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which measure of central tendency is NOT included in basic statistical descriptions?</p>
+            <ul class="options">
+                <li>a) Mean</li>
+                <li>b) Median</li>
+                <li>c) Mode</li>
+                <li class="correct">d) Standard deviation</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is used to measure data dissimilarity for numeric attributes?</p>
+            <ul class="options">
+                <li>a) Jaccard coefficient</li>
+                <li class="correct">b) Euclidean distance</li>
+                <li>c) Cosine similarity</li>
+                <li>d) Pearson correlation</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which similarity measure is suitable for binary attributes?</p>
+            <ul class="options">
+                <li>a) Euclidean distance</li>
+                <li class="correct">b) Jaccard coefficient</li>
+                <li>c) Manhattan distance</li>
+                <li>d) Cosine similarity</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Data preprocessing is important because________________</p>
+            <ul class="options">
+                <li>a) Raw data is always clean and consistent</li>
+                <li class="correct">b) Mining results depend on the quality of data</li>
+                <li>c) It replaces mining algorithms</li>
+                <li>d) It eliminates the need for databases</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is NOT part of data cleaning?</p>
+            <ul class="options">
+                <li class="correct">a) Reducing data dimensionality</li>
+                <li>b) Removing noise</li>
+                <li>c) Handling missing values</li>
+                <li>d) Resolving inconsistencies</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Data integration combines data from_____________</p>
+            <ul class="options">
+                <li>a) One dataset only</li>
+                <li>b) Metadata repositories</li>
+                <li>c) Random samples only</li>
+                <li class="correct">d) Multiple heterogeneous sources</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is a technique of data reduction?</p>
+            <ul class="options">
+                <li class="correct">a) Attribute subset selection</li>
+                <li>b) Normalization</li>
+                <li>c) Discretization</li>
+                <li>d) Data cleaning</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which histogram partitioning method divides the data into equal-width ranges?</p>
+            <ul class="options">
+                <li>a) Equal-frequency binning</li>
+                <li class="correct">b) Equal-width binning</li>
+                <li>c) V-optimal binning</li>
+                <li>d) Adaptive binning</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Sampling is used in data reduction because:</p>
+            <ul class="options">
+                <li>a) It increases redundancy</li>
+                <li class="correct">b) It reduces data size while maintaining representativeness</li>
+                <li>c) It eliminates the need for mining</li>
+                <li>d) It always improves accuracy</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is NOT a data transformation technique?</p>
+            <ul class="options">
+                <li>a) Normalization</li>
+                <li>b) Aggregation</li>
+                <li>c) Discretization</li>
+                <li class="correct">d) Classification</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Min–Max normalization transforms values to a range of:</p>
+            <ul class="options">
+                <li class="correct">a) [0, 1] or another specified interval</li>
+                <li>b) [−1, 1] only</li>
+                <li>c) Mean-centered scale</li>
+                <li>d) Standard deviation units</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Discretization involves:</p>
+            <ul class="options">
+                <li class="correct">a) Transforming continuous attributes into categorical intervals</li>
+                <li>b) Replacing missing values with mean values</li>
+                <li>c) Aggregating records into summaries</li>
+                <li>d) Detecting outliers in data</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which technique generates concept hierarchies for discretization?</p>
+            <ul class="options">
+                <li>a) Binning</li>
+                <li>b) Histogram analysis</li>
+                <li>c) Entropy-based discretization</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>MCQ - UNIT2 (CO 3 & CO 4)</h2>
+    <ol>
+        <li class="question-item"><p class="question-text">In the context of data mining, classification refers to ________</p>
+            <ul class="options">
+                <li>a) Grouping data into clusters without prior labels</li>
+                <li class="correct">b) Assigning data objects to predefined categories or classes</li>
+                <li>c) Discovering hidden frequent itemset</li>
+                <li>d) Reducing the dimensionality of the dataset</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following tasks is the best example of supervised learning?</p>
+            <ul class="options">
+                <li>a) Clustering customers into market segments</li>
+                <li class="correct">b) Classifying emails as spam or not spam</li>
+                <li>c) Mining association rules from supermarket transactions</li>
+                <li>d) Summarizing data using histograms</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">During the classification process, the class label of the training data is considered:</p>
+            <ul class="options">
+                <li>a) Unknown and must be discovered through clustering</li>
+                <li class="correct">b) Known and provided to guide the learning process</li>
+                <li>c) Always numerical in nature</li>
+                <li>d) Randomly assigned to each instance</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A decision tree classifier is constructed by repeatedly splitting the dataset into subsets. Which of the following best describes the way decision tree induction operates?</p>
+            <ul class="options">
+                <li>a) It creates a single cluster for the entire dataset</li>
+                <li class="correct">b) It recursively partitions the dataset based on attribute tests</li>
+                <li>c) It generates probability models directly</li>
+                <li>d) It applies normalization before clustering</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In decision tree induction, the attribute chosen as the root node is the one that:</p>
+            <ul class="options">
+                <li>a) Has the smallest average value</li>
+                <li class="correct">b) Provides the highest information gain or best split criterion</li>
+                <li>c) Appears first in the dataset schema</li>
+                <li>d) Is selected randomly from the list of attributes</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Entropy, a measure often used in decision tree construction, is used to represent:</p>
+            <ul class="options">
+                <li>a) The similarity between data objects</li>
+                <li class="correct">b) The amount of disorder or impurity in the dataset</li>
+                <li>c) The mean of all numeric attributes</li>
+                <li>d) The standard deviation of the dataset</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Information gain, used in attribute selection during tree building, is mathematically defined as:</p>
+            <ul class="options">
+                <li>a) The ratio of training to testing instances</li>
+                <li class="correct">b) The reduction in entropy achieved after splitting the data</li>
+                <li>c) The variance of the attribute distribution</li>
+                <li>d) The distance between two attributes</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Overfitting is a common problem in decision tree models. Which of the following methods is typically applied to reduce overfitting and improve generalization?</p>
+            <ul class="options">
+                <li>a) Applying clustering after tree building</li>
+                <li class="correct">b) Using pruning techniques to simplify the tree</li>
+                <li>c) Ignoring missing values in training data</li>
+                <li>d) Increasing the number of attributes in training data</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following statements about decision trees is correct?</p>
+            <ul class="options">
+                <li>a) They can handle only numeric attributes effectively</li>
+                <li>b) They are always unsupervised learning methods</li>
+                <li class="correct">c) They can handle both categorical and numerical attributes</li>
+                <li>d) They cannot be pruned after construction</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Decision tree classifiers are widely used in practice because:</p>
+            <ul class="options">
+                <li>a) They are difficult to interpret and understand</li>
+                <li>b) They require extensive data normalization and transformation</li>
+                <li class="correct">c) They are intuitive, easy to visualize, and handle mixed data types</li>
+                <li>d) They cannot deal with missing values in datasets</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Bayes classification methods are based on which fundamental principle?</p>
+            <ul class="options">
+                <li>a) Similarity measures between attributes</li>
+                <li class="correct">b) Probability theory and Bayes’ theorem</li>
+                <li>c) Decision tree rules</li>
+                <li>d) Distance-based clustering</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Naïve Bayes classifier makes a strong assumption about the attributes in the dataset. Which assumption is correct?</p>
+            <ul class="options">
+                <li>a) Attributes are dependent on each other given the class</li>
+                <li class="correct">b) Attributes are independent of each other given the class label</li>
+                <li>c) Classes always occur with equal probability</li>
+                <li>d) Only categorical attributes can be used</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Bayes theorem is the foundation of Bayesian classifiers. What does it allow us to compute?</p>
+            <ul class="options">
+                <li class="correct">a) The posterior probability of a class given the observed data</li>
+                <li>b) The variance of attributes in a dataset</li>
+                <li>c) The frequency of itemsets</li>
+                <li>d) The support of association rules</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In Naïve Bayes classification, the probability of a class C given a feature X is denoted as:</p>
+            <ul class="options">
+                <li>a) P(C) × P(X)</li>
+                <li class="correct">b) P(C|X)</li>
+                <li>c) P(X|C)</li>
+                <li>d) P(X)/P(C)</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Naïve Bayes classifiers perform particularly well when:</p>
+            <ul class="options">
+                <li>a) The attributes are highly correlated</li>
+                <li class="correct">b) The attributes are conditionally independent given the class</li>
+                <li>c) The dataset is extremely noisy and incomplete</li>
+                <li>d) The classes have unequal distribution</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Rule-based classification techniques generate rules of the form:</p>
+            <ul class="options">
+                <li>a) Attribute → Attribute</li>
+                <li class="correct">b) IF condition THEN class label</li>
+                <li>c) Class label → condition</li>
+                <li>d) Association rule only</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">One popular approach to generate classification rules is the sequential covering algorithm. What is its main principle?</p>
+            <ul class="options">
+                <li>a) All rules are generated at once</li>
+                <li class="correct">b) Rules are learned one at a time and each rule removes the instances it covers</li>
+                <li>c) Only clustering-based rules are allowed</li>
+                <li>d) It evaluates attributes by entropy</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In the sequential covering algorithm, rules are added to the model until:</p>
+            <ul class="options">
+                <li>a) All attributes are covered once</li>
+                <li class="correct">b) Most or all of the training examples are covered by at least one rule</li>
+                <li>c) The dataset is fully clustered</li>
+                <li>d) The entropy value is zero</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A useful classification rule should satisfy which of the following conditions?</p>
+            <ul class="options">
+                <li>a) Low support and low confidence</li>
+                <li class="correct">b) High support and high confidence values</li>
+                <li>c) High entropy values</li>
+                <li>d) Minimum coverage of data</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Rule pruning in rule-based classification is important because:</p>
+            <ul class="options">
+                <li>a) It increases the number of rules for better coverage</li>
+                <li class="correct">b) It reduces complexity and removes rules that do not improve accuracy</li>
+                <li>c) It merges clustering results</li>
+                <li>d) It normalizes attributes before classification</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Model evaluation in classification is important primarily because:</p>
+            <ul class="options">
+                <li>a) It reduces storage costs of data</li>
+                <li class="correct">b) It determines how well the classification model performs on unseen data</li>
+                <li>c) It eliminates irrelevant attributes</li>
+                <li>d) It ensures clustering is performed correctly</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A common practice in model evaluation is to split the dataset into two parts. Which of the following represents the correct split?</p>
+            <ul class="options">
+                <li class="correct">a) Training set and test set</li>
+                <li>b) Metadata and schema set</li>
+                <li>c) Test set only</li>
+                <li>d) Histogram and sample set</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Cross-validation is an evaluation technique used to:</p>
+            <ul class="options">
+                <li>a) Reduce the number of features in a dataset</li>
+                <li class="correct">b) Estimate the performance of a model by testing it on multiple folds of data</li>
+                <li>c) Create association rules with higher support</li>
+                <li>d) Perform discretization of continuous values</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Accuracy is one of the most basic evaluation metrics. It is defined as:</p>
+            <ul class="options">
+                <li>a) The ratio of true positives to false positives</li>
+                <li class="correct">b) The proportion of correctly classified instances over total instances</li>
+                <li>c) The number of clusters formed divided by total attributes</li>
+                <li>d) The variance of prediction errors</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Precision is used in model evaluation to measure:</p>
+            <ul class="options">
+                <li class="correct">a) The ratio of true positives to all instances predicted as positive</li>
+                <li>b) The ratio of true positives to all actual positives</li>
+                <li>c) The number of correct predictions out of all predictions</li>
+                <li>d) The reduction in entropy after splitting</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Recall, also known as sensitivity, measures:</p>
+            <ul class="options">
+                <li class="correct">a) The ratio of true positives to all actual positive cases</li>
+                <li>b) The ratio of true positives to all predicted positives</li>
+                <li>c) The overall accuracy of the classifier</li>
+                <li>d) The similarity between attribute values</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The F1-score is a useful metric for imbalanced datasets. It is defined as:</p>
+            <ul class="options">
+                <li class="correct">a) The harmonic mean of precision and recall</li>
+                <li>b) The arithmetic mean of precision and recall</li>
+                <li>c) The maximum of precision and recall</li>
+                <li>d) The difference between precision and recall</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following metrics is NOT typically used for evaluating classification models?</p>
+            <ul class="options">
+                <li>a) Accuracy</li>
+                <li>b) Precision</li>
+                <li>c) Recall</li>
+                <li class="correct">d) Support and confidence of association rules</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A confusion matrix is a table often used in classification. What does it display?</p>
+            <ul class="options">
+                <li>a) The variance of attributes in training and test sets</li>
+                <li class="correct">b) The comparison of actual class labels with predicted class labels</li>
+                <li>c) The clusters generated by unsupervised algorithms</li>
+                <li>d) The frequent patterns discovered in association mining</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">One major challenge faced during model selection in classification is balancing:</p>
+            <ul class="options">
+                <li class="correct">a) Overfitting and underfitting of the model</li>
+                <li>b) The size of histograms used for discretization</li>
+                <li>c) The normalization of numerical attributes</li>
+                <li>d) The generation of frequent itemsets</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2>Unit 3</h2>
+    <ol>
+        <li class="question-item"><p class="question-text">Clustering differs from classification because___________</p>
+            <ul class="options">
+                <li class="correct">a) Classification is supervised, clustering is unsupervised</li>
+                <li>b) Both are supervised learning techniques</li>
+                <li>c) Clustering requires training data with labels</li>
+                <li>d) Classification doesn’t use labels</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A cluster is best defined as_______</p>
+            <ul class="options">
+                <li>a) A collection of outliers</li>
+                <li class="correct">b) A group of objects that are similar to each other within the same group</li>
+                <li>c) A set of objects that are always dissimilar</li>
+                <li>d) A data compression method</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In clustering, similarity is often measured using___________</p>
+            <ul class="options">
+                <li>a) Euclidean distance</li>
+                <li>b) Cosine similarity</li>
+                <li>c) Correlation coefficient</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The process of assigning each data object to exactly one cluster is called_________</p>
+            <ul class="options">
+                <li>a) Overlapping clustering</li>
+                <li>b) Soft clustering</li>
+                <li class="correct">c) Hard clustering</li>
+                <li>d) Fuzzy clustering</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which algorithm is a partitioning clustering method?</p>
+            <ul class="options">
+                <li>a) Agglomerative hierarchical clustering</li>
+                <li class="correct">b) K-means</li>
+                <li>c) DBSCAN</li>
+                <li>d) BIRCH</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">K-means algorithm partitions data into____________</p>
+            <ul class="options">
+                <li class="correct">a) Predefined number of clusters</li>
+                <li>b) Dynamic number of clusters</li>
+                <li>c) One cluster only</li>
+                <li>d) Maximum possible clusters</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Cluster analysis is mainly used for_______</p>
+            <ul class="options">
+                <li>a) Classification of labelled data</li>
+                <li class="correct">b) Discovering groups of similar objects in data</li>
+                <li>c) Data compression only</li>
+                <li>d) Feature extraction only</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is NOT a goal of cluster analysis?</p>
+            <ul class="options">
+                <li>a) To maximize similarity within clusters</li>
+                <li>b) To maximize dissimilarity between clusters</li>
+                <li class="correct">c) To label data with predefined classes</li>
+                <li>d) To identify natural groupings</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is an example of a clustering application?</p>
+            <ul class="options">
+                <li class="correct">a) Customer segmentation in marketing</li>
+                <li>b) Spam email classification</li>
+                <li>c) Handwritten digit recognition with labels</li>
+                <li>d) Predicting weather using regression</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which type of data can clustering handle?</p>
+            <ul class="options">
+                <li>a) Numerical</li>
+                <li>b) Categorical</li>
+                <li>c) Mixed type</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In fuzzy clustering, each data point:</p>
+            <ul class="options">
+                <li>a) Belongs strictly to one cluster</li>
+                <li class="correct">b) Can belong to multiple clusters with different membership degrees</li>
+                <li>c) Is treated as noise</li>
+                <li>d) Must be excluded</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Outlier detection is often performed as part of:</p>
+            <ul class="options">
+                <li>a) Regression</li>
+                <li>b) Classification</li>
+                <li class="correct">c) Clustering</li>
+                <li>d) Feature extraction</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In agglomerative clustering, initially each data point is:</p>
+            <ul class="options">
+                <li class="correct">a) Assigned to its own cluster</li>
+                <li>b) Assigned to one big cluster</li>
+                <li>c) Randomly assigned</li>
+                <li>d) Ignored until later steps</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The objective of K-means is to minimize:</p>
+            <ul class="options">
+                <li>a) Inter-cluster similarity</li>
+                <li>b) Outliers</li>
+                <li>c) Number of clusters</li>
+                <li class="correct">d) Sum of squared errors within clusters</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Hierarchical clustering produces:</p>
+            <ul class="options">
+                <li>a) A set of predefined k clusters</li>
+                <li class="correct">b) A tree-like structure of clusters</li>
+                <li>c) A partition of equal-size clusters</li>
+                <li>d) Only fuzzy clusters</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is a limitation of K-means clustering?</p>
+            <ul class="options">
+                <li>a) Requires specifying k in advance</li>
+                <li>b) Sensitive to initial centroid selection</li>
+                <li>c) Works poorly with non-spherical clusters</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">In K-medoids clustering, the cluster center is:</p>
+            <ul class="options">
+                <li>a) The mean of points in the cluster</li>
+                <li>b) The median of points in the cluster</li>
+                <li class="correct">c) An actual data point (medoid)</li>
+                <li>d) Always the first data point</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following clustering methods is more robust to noise and outliers?</p>
+            <ul class="options">
+                <li>a) K-means</li>
+                <li class="correct">b) K-medoids</li>
+                <li>c) Both equally</li>
+                <li>d) None</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The computational complexity of K-means is generally:</p>
+            <ul class="options">
+                <li>a) O(n)</li>
+                <li>b) O(nk)</li>
+                <li class="correct">c) O(nkd) where n = number of points, k = clusters, d = dimensions</li>
+                <li>d) O(k²)</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The K-means algorithm stops when:</p>
+            <ul class="options">
+                <li>a) Clusters keep changing indefinitely</li>
+                <li class="correct">b) Centroids no longer change significantly</li>
+                <li>c) New clusters keep forming</li>
+                <li>d) It reaches maximum iterations only</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The quality of clusters in K-means is affected by:</p>
+            <ul class="options">
+                <li>a) Initial centroid choice</li>
+                <li>b) Value of k</li>
+                <li>c) Distance metric used</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">K-means is best suited for:</p>
+            <ul class="options">
+                <li class="correct">a) Clusters of spherical shape and similar size</li>
+                <li>b) Arbitrary shaped clusters</li>
+                <li>c) Hierarchical clusters</li>
+                <li>d) Clusters with high noise</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The tree structure produced by hierarchical clustering is called:</p>
+            <ul class="options">
+                <li>a) Tree map</li>
+                <li class="correct">b) Dendrogram</li>
+                <li>c) Hierarchy tree</li>
+                <li>d) Cluster chart</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Agglomerative hierarchical clustering is a:</p>
+            <ul class="options">
+                <li class="correct">a) Bottom-up approach</li>
+                <li>b) Top-down approach</li>
+                <li>c) Mixed approach</li>
+                <li>d) None</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Divisive hierarchical clustering is a:</p>
+            <ul class="options">
+                <li>a) Bottom-up approach</li>
+                <li class="correct">b) Top-down approach</li>
+                <li>c) Mixed approach</li>
+                <li>d) None</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">The linkage criterion in hierarchical clustering defines:</p>
+            <ul class="options">
+                <li class="correct">a) How distance between clusters is measured</li>
+                <li>b) The number of clusters</li>
+                <li>c) The centroid position</li>
+                <li>d) How to detect outliers</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which of the following is a linkage method in hierarchical clustering?</p>
+            <ul class="options">
+                <li>a) Single linkage</li>
+                <li>b) Complete linkage</li>
+                <li>c) Average linkage</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">A disadvantage of hierarchical clustering is:</p>
+            <ul class="options">
+                <li>a) Cannot handle large datasets efficiently</li>
+                <li>b) Sensitive to noise and outliers</li>
+                <li>c) Once merged or split, clusters cannot be undone</li>
+                <li class="correct">d) All of the above</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Which clustering method does NOT require specifying the number of clusters in advance?</p>
+            <ul class="options">
+                <li>a) K-means</li>
+                <li>b) K-medoids</li>
+                <li class="correct">c) Hierarchical clustering</li>
+                <li>d) Partitioning methods in general</li>
+            </ul>
+        </li>
+        <li class="question-item"><p class="question-text">Cutting the dendrogram at a specific height helps to:</p>
+            <ul class="options">
+                <li class="correct">a) Determine the number of clusters</li>
+                <li>b) Improve centroid accuracy</li>
+                <li>c) Reduce noise only</li>
+                <li>d) Increase cluster compactness</li>
+            </ul>
+        </li>
+    </ol>
+</body>
+</html>
